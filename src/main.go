@@ -2,29 +2,41 @@ package main
 
 import "fmt"
 
+func mandaSaludo(mensaje string) {
+	fmt.Println(mensaje)
+}
+
+func tripleArgumento(a int, b int, c int) {
+	fmt.Println(a, b, c)
+}
+
+func buenaPracticaTripleArgumento(a, b int, c string) {
+	fmt.Println(a, b, c)
+}
+
+func retornaValor(a int) int {
+	return a * 2
+}
+
+func retornaDosValores(a int) (c, d int) {
+	return a, a * 3
+}
+
 func main() {
-	// declaracion de variables
-	helloMessage := "Hola"
-	worldMessage := "mundo"
+	mandaSaludo("Hola mundo")
+	tripleArgumento(1, 2, 3)
+	buenaPracticaTripleArgumento(1, 2, "lalo")
 
-	// Println con fmt
-	fmt.Println(helloMessage, worldMessage)
+	valor := retornaValor(2)
+	fmt.Println("El valor retornado es:", valor)
 
-	persona := "Dalthon"
-	actividad := "Curso de Go"
-	anio := 2024
-	// Donde: %s es para variables de tipo string y %d para variables de tipo int, %v es indistinto el tipo de dato
-	// Le pasamos los valores en orden
+	valor1, valor2 := retornaDosValores(3)
+	fmt.Println("Valor1 y valor2 son:", valor1, valor2)
 
-	// Printf
-	fmt.Printf("%s esta aprendiendo %s el anio %d\n", persona, actividad, anio)
+	dato1, _ := retornaDosValores(2)
+	fmt.Println("Solo uso 1er valor:", dato1)
 
-	// Sprintf
-	message := fmt.Sprintf("%s esta aprendiendo %s el anio %d", persona, actividad, anio)
-	fmt.Println(message)
-
-	// Para saber tipo de datos
-	fmt.Printf("Tipo de dato de 'persona': %T\n", persona)
-	fmt.Printf("Tipo de dato de 'anio': %T\n", anio)
+	_, dato2 := retornaDosValores(5)
+	fmt.Println("Solo uso 2do valor:", dato2)
 
 }
