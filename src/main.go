@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 func mandaSaludo(mensaje string) {
 	fmt.Println(mensaje)
@@ -22,6 +25,17 @@ func retornaDosValores(a int) (c, d int) {
 	return a, a * 3
 }
 
+// area del circulo
+func calculaAreaCirculo(radio float64) float64 {
+	return math.Pi * math.Pow(radio, 2)
+
+}
+
+// area del trapecio
+func calculaAreaTrapecio(baseMayor, baseMenor, altura float64) float64 {
+	return (baseMayor + baseMenor) * altura / 2
+}
+
 func main() {
 	mandaSaludo("Hola mundo")
 	tripleArgumento(1, 2, 3)
@@ -39,4 +53,14 @@ func main() {
 	_, dato2 := retornaDosValores(5)
 	fmt.Println("Solo uso 2do valor:", dato2)
 
+	circulo := 3.4
+	areaCirculo := calculaAreaCirculo(circulo)
+	fmt.Println("Area circulo: ", areaCirculo)
+
+	base_mayor := 6.3
+	base_menor := 3.2
+	altura := 2
+
+	areaTrapecio := calculaAreaTrapecio(base_mayor, base_menor, float64(altura))
+	fmt.Println("Area del trapecio es: ", areaTrapecio)
 }
