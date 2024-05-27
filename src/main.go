@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"log"
+	"strconv"
 )
 
 func determinarParImpar(numero int) string {
@@ -24,8 +26,8 @@ func login(usuario, password string) string {
 
 	// Asignamos valores a los elementos del array
 	usuarios[0] = Usuario{usuario: "Dalthon", password: "123"}
-	usuarios[1] = Usuario{usuario: "Pepe", password: "abc"}
-	usuarios[2] = Usuario{usuario: "Jose", password: "xyz"}
+	usuarios[1] = Usuario{usuario: "Katia", password: "abc"}
+	usuarios[2] = Usuario{usuario: "Elvis", password: "xyz"}
 
 	// Retorna token de acceso
 	token := ""
@@ -45,6 +47,36 @@ func login(usuario, password string) string {
 }
 
 func main() {
+	valor1 := 1
+	valor2 := 2
+
+	// comparacion simple
+	if valor1 == 1 {
+		fmt.Println("Es 1")
+	} else {
+		fmt.Println("No es 1")
+	}
+
+	// compuerta lógica AND
+	if valor1 == 1 && valor2 == 2 {
+		fmt.Println("Valor1 es 1 y valor2 es 2")
+	}
+
+	// compuerta logica OR
+	if valor1 != 1 || valor2 != 2 {
+		fmt.Println("Valor1 es 1 y valor2 es 2")
+	} else {
+		fmt.Println("Valor 1 y valor 2 son falsos")
+	}
+
+	// convertir texto a numero
+	value, err := strconv.Atoi("83")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println("Valor:", value)
+
 	// Reto1: Determinar si un número es par o impar
 	numero := 3
 	respuesta := determinarParImpar(numero)
