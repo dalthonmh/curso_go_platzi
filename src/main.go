@@ -19,7 +19,14 @@ func main() {
 
 	// ciclo for forever
 	// para terminar la ejecucion apreta control + c
-	for {
-		fmt.Println("Dalthon es un crack!")
+	// for {
+	// 	fmt.Println("Dalthon es un crack!")
+	// }
+
+	// for range, similar a foreach en otros lenguajes
+	listaFrutas := []string{"pera", "manzana", "platano", "higo", "durazno"}
+
+	for index, fruta := range listaFrutas {
+		fmt.Printf("Fruta %d: %s\n", index, fruta)
 	}
 }
