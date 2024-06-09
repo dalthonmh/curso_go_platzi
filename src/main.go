@@ -23,4 +23,8 @@ func main() {
 	fmt.Println(slice[:3])
 	fmt.Println(slice[2:4])
 	fmt.Println(slice[4:])
+
+	slice2 := make([]float64, 5, 10)
+	fmt.Println(slice2)
+	fmt.Println(slice2, "tamanio slice2:", len(slice2), "capacidad slice2:", cap(slice2))
 }
