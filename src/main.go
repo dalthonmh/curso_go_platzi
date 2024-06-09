@@ -2,38 +2,37 @@ package main
 
 import (
 	"fmt"
+	"strings"
 )
 
+func isPalindromo(texto string) {
+
+	var textReverse string
+
+	for i := len(texto) - 1; i >= 0; i-- {
+		textReverse += string(texto[i])
+	}
+
+	if strings.ToLower(texto) == strings.ToLower(textReverse) {
+		fmt.Println(texto, "==> SI es palindromo (OK)")
+	} else {
+		fmt.Println(texto, "==> No es palindromo")
+	}
+
+}
+
 func main() {
-	// array y slices
-	var array [4]int
-	array[0] = 1
-	array[1] = 2
-	fmt.Println(array)
-	fmt.Println(array, "tamanio array:", len(array), "capacidad array:", cap(array))
+	slice := []string{"lunes", "martes", "miercoles", "jueves", "viernes"}
 
-	// slices
-	// en los slices no va la cantidad de tamaño que va a tener el array
-	slice := []int{0, 1, 2, 3, 4, 5, 6}
-	fmt.Println(slice, "tamanio slice:", len(slice), "capacidad slice:", cap(slice))
+	for i, valor := range slice {
+		fmt.Println(i, valor)
+	}
 
-	// slicing
-	// metodos en el slice
-	fmt.Println(slice[0])
-	fmt.Println(slice[:3])
-	fmt.Println(slice[2:4])
-	fmt.Println(slice[4:])
+	// recorrido sin indice
+	for _, valor := range slice {
+		fmt.Println(valor)
+	}
 
-	//slice2 := make([]float64, 5, 10)
-	// fmt.Println(slice2, "tamanio slice2:", len(slice2), "capacidad slice2:", cap(slice2))
-
-	var slice2 []float64
-	// agregar elementos a los slices
-	slice2 = append(slice2, 34.32)
-	fmt.Println(slice2)
-
-	// agregar nuevo slice con datos del anterior
-	slice3 := []float64{743.23, 122.23}
-	slice2 = append(slice2, slice3...)
-	fmt.Println("slice2", slice2)
+	// ----- detectar si es palindromo -----
+	isPalindromo("Ama")
 }
