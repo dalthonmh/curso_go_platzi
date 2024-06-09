@@ -24,7 +24,16 @@ func main() {
 	fmt.Println(slice[2:4])
 	fmt.Println(slice[4:])
 
-	slice2 := make([]float64, 5, 10)
+	//slice2 := make([]float64, 5, 10)
+	// fmt.Println(slice2, "tamanio slice2:", len(slice2), "capacidad slice2:", cap(slice2))
+
+	var slice2 []float64
+	// agregar elementos a los slices
+	slice2 = append(slice2, 34.32)
 	fmt.Println(slice2)
-	fmt.Println(slice2, "tamanio slice2:", len(slice2), "capacidad slice2:", cap(slice2))
+
+	// agregar nuevo slice con datos del anterior
+	slice3 := []float64{743.23, 122.23}
+	slice2 = append(slice2, slice3...)
+	fmt.Println("slice2", slice2)
 }
