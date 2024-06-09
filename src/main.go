@@ -2,37 +2,39 @@ package main
 
 import (
 	"fmt"
-	"strings"
 )
 
-func isPalindromo(texto string) {
-
-	var textReverse string
-
-	for i := len(texto) - 1; i >= 0; i-- {
-		textReverse += string(texto[i])
-	}
-
-	if strings.ToLower(texto) == strings.ToLower(textReverse) {
-		fmt.Println(texto, "==> SI es palindromo (OK)")
-	} else {
-		fmt.Println(texto, "==> No es palindromo")
-	}
-
-}
-
 func main() {
-	slice := []string{"lunes", "martes", "miercoles", "jueves", "viernes"}
+	peso_cohetes := make(map[string]int)
 
-	for i, valor := range slice {
-		fmt.Println(i, valor)
+	peso_cohetes["starship"] = 5000000
+	peso_cohetes["falcon9"] = 549054
+	peso_cohetes["dragon"] = 4201
+	peso_cohetes["falconheavy"] = 1420788
+
+	fmt.Println(peso_cohetes)
+
+	// recorrer valor
+	for i, v := range peso_cohetes {
+		fmt.Println(i, v)
 	}
 
-	// recorrido sin indice
-	for _, valor := range slice {
-		fmt.Println(valor)
+	// obtener un solo valor
+	// ok indica si la llave existe o no en el diccionario
+	value, ok := peso_cohetes["dragon"]
+	fmt.Println(value, ok)
+
+	// obtener un valor no existente
+	value2, ok := peso_cohetes["noexiste"]
+	fmt.Println(value2, ok)
+
+	// otra forma de declarar
+	//Declaration
+	var map_1 = map[string]int32{
+		"Car":      50000,
+		"House":    20000,
+		"Computer": 1000,
 	}
 
-	// ----- detectar si es palindromo -----
-	isPalindromo("Ama")
+	fmt.Println(map_1)
 }
