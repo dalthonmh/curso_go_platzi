@@ -1,22 +1,25 @@
 package main
 
-import (
-	"fmt"
-	pk "mypackage/src/mypackage" // alias es pk
-)
+import "fmt"
+
+type computadora struct {
+	ram   int
+	disk  int
+	brand string
+}
+
+func (miComputadora *computadora) duplicarRam() {
+	miComputadora.ram = miComputadora.ram * 2
+}
 
 func main() {
-	var myCar pk.AutoPublic
-	myCar.Marca = "Toyota"
-	myCar.Anio = 2017
+	lenovo := computadora{ram: 4, disk: 200, brand: "Lenovo"}
 
-	fmt.Println(myCar)
+	fmt.Println(lenovo)
 
-	// prueba acceso a metodo privado
-	// var myOtroCarro pk.autoPrivado
-	// fmt.Println(myOtroCarro)
+	lenovo.duplicarRam()
+	fmt.Println(lenovo)
 
-	pk.PrintMessage()
-
-	// pk.printMessage()
+	lenovo.duplicarRam()
+	fmt.Println(lenovo)
 }
