@@ -2,29 +2,41 @@ package main
 
 import "fmt"
 
-type computadora struct {
-	ram   int
-	disk  int
-	brand string
+type figuras2D interface {
+	area() float64
 }
 
-func (miComputadora *computadora) duplicarRam() {
-	miComputadora.ram = miComputadora.ram * 2
+type cuadrado struct {
+	base float64
 }
 
-func (miComputadora computadora) String() string {
-	return fmt.Sprintf("Tengo %d GB de ram, %d GB de disco y es de marca %s", miComputadora.ram, miComputadora.disk, miComputadora.brand)
+type rectangulo struct {
+	base   float64
+	altura float64
+}
+
+// methods
+func (c cuadrado) area() float64 {
+	return c.base * c.base
+}
+
+func (r rectangulo) area() float64 {
+	return r.base * r.altura
+}
+
+// recibe la interfaz y lo imprime
+func calcular(f figuras2D) {
+	fmt.Println("Area:", f.area())
 }
 
 func main() {
-	lenovo := computadora{ram: 4, disk: 200, brand: "Lenovo"}
+	miCuadrado := cuadrado{base: 5}
+	miRectangulo := rectangulo{base: 3, altura: 5}
 
-	fmt.Println(lenovo)
+	calcular(miCuadrado)
+	calcular(miRectangulo)
 
-	lenovo.duplicarRam()
-	fmt.Println(lenovo)
-
-	lenovo.duplicarRam()
-	fmt.Println(lenovo)
-
+	// lista de interfaces
+	miIntefaz := []interface{}{"Diferente", 4, true, 3.54, "de datos"}
+	fmt.Println(miIntefaz...)
 }
