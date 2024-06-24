@@ -1,42 +1,21 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sync"
+)
 
-type figuras2D interface {
-	area() float64
-}
-
-type cuadrado struct {
-	base float64
-}
-
-type rectangulo struct {
-	base   float64
-	altura float64
-}
-
-// methods
-func (c cuadrado) area() float64 {
-	return c.base * c.base
-}
-
-func (r rectangulo) area() float64 {
-	return r.base * r.altura
-}
-
-// recibe la interfaz y lo imprime
-func calcular(f figuras2D) {
-	fmt.Println("Area:", f.area())
+func say(text string, wg *sync.WaitGroup) {
+	defer wg.Done()
+	fmt.Println(text)
 }
 
 func main() {
-	miCuadrado := cuadrado{base: 5}
-	miRectangulo := rectangulo{base: 3, altura: 5}
+	var wg sync.WaitGroup
 
-	calcular(miCuadrado)
-	calcular(miRectangulo)
+	fmt.Println("Hola")
+	wg.Add(1)
+	go say("world", &wg)
 
-	// lista de interfaces
-	miIntefaz := []interface{}{"Diferente", 4, true, 3.54, "de datos"}
-	fmt.Println(miIntefaz...)
+	wg.Wait()
 }
